@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include "time.h"
 #include <iostream>
 #include <stdexcept>
 
@@ -20,13 +21,24 @@ Vector::Vector(const Vector& ref) :capacity(ref.capacity), size(ref.size)
 	this->data = new int[capacity];
 	for (int i = 0; i < size; i++) 
 	{
-		data[i] = ref.data[i];
+		this->data[i] = ref.data[i];
 	}
 }
 Vector::~Vector() 
 {
 	delete [] data;
 };
+
+void Vector:: Init()
+{
+	srand((unsigned int)time(0));
+	for (int i = 0; i < Size(); i++)
+	{
+		GetElem(i) = rand() % (size * 2)+1;
+	}
+};
+
+
 void Vector::Print() const
 {
 	if (size == 0) {
@@ -79,3 +91,12 @@ int& Vector::At(size_t index)
 		return data[index];
 	}	
 }
+int& Vector::GetElem(size_t index)
+{
+	if (size <= index) {
+		throw std::out_of_range("Error!");
+	}
+	else {
+		return data[index];
+	}
+};
