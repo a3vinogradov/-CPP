@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+/*
 int* GetArray(int N, int& len)
 {
 
@@ -26,10 +27,11 @@ int* GetArray(int N, int& len)
         return Arr;
     }
 }
-bool IsEasy(int val) 
+*/
+bool IsSimple(int val) 
 {
     bool res = true;
-    for (int i=2; i<(val/2); i++)
+    for (int i=2; i<=(val/2); i++)
     {
         if (val % i == 0) 
         {
@@ -39,12 +41,12 @@ bool IsEasy(int val)
     }
     return res;
 }
-int* GetEasyArr(int N, int& len)
+int* GetSimpleArr(int N, int& len)
 {
     std::vector<int> v;
     for (int i = 2; i <= N; i++)
     {
-        if (IsEasy(i)) {
+        if (IsSimple(i)) {
             v.push_back(i);
         }
     }
@@ -59,6 +61,7 @@ int main()
 {
     int* Arr;
     int len = 0;
+    /*
     Arr = GetArray(6, len);
     for (int i = 0; i < len; i++)
     {
@@ -72,8 +75,8 @@ int main()
         std::cout << Arr[i] << " ";
     }
     std::cout << std::endl << "End\n";
-    
-    Arr = GetEasyArr(30, len);
+    */
+    Arr = GetSimpleArr(30, len);
     for (int i = 0; i < len; i++)
     {
         std::cout << Arr[i] << " ";
