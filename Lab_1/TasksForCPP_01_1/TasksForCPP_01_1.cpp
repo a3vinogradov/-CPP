@@ -13,14 +13,6 @@ void GetDate(int& dd, int& mm, int& yyyy) {
     yyyy = ptm->tm_year+1900;
     return;
 }
-void GetDate1(int& dd, int& mm, int& yyyy) {
-    time_t ptr = time(0);
-    tm* ptm = localtime(&ptr);
-    dd = 1;
-    mm = 2;
-    yyyy = 2222;
-    return;
-}
 int main()
 {
     int dd, mm, yyyy;

@@ -32,9 +32,15 @@ Vector::~Vector()
 void Vector:: Init()
 {
 	srand((unsigned int)time(0));
+	int rnd;
+
 	for (int i = 0; i < Size(); i++)
 	{
-		GetElem(i) = rand() % (size * 2)+1;
+		do
+		{
+			rnd = rand() % (size * 2) + 1;
+		} while (Pos(rnd) >= 0);
+		GetElem(i) = rnd;
 	}
 };
 
@@ -99,4 +105,16 @@ int& Vector::GetElem(size_t index)
 	else {
 		return data[index];
 	}
-};
+}
+int Vector::Pos(int val) const
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (data[i]==val)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+;

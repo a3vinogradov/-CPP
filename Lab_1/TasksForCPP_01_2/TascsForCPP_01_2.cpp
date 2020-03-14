@@ -61,21 +61,6 @@ int main()
 {
     int* Arr;
     int len = 0;
-    /*
-    Arr = GetArray(6, len);
-    for (int i = 0; i < len; i++)
-    {
-        std::cout << Arr[i] << " ";
-    }
-    std::cout << std::endl << "End\n";
-
-    Arr = GetArray(-8, len);
-    for (int i = 0; i < len; i++)
-    {
-        std::cout << Arr[i] << " ";
-    }
-    std::cout << std::endl << "End\n";
-    */
     Arr = GetSimpleArr(30, len);
     for (int i = 0; i < len; i++)
     {

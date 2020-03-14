@@ -16,6 +16,7 @@ public:
 	int At(size_t index) const;
 	int& At(size_t index);
 	int& GetElem(size_t index);
+	int Pos(int val) const;
 
 	size_t Size() const { return size; }
 	size_t Capacity() const { return capacity; }

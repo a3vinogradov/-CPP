@@ -9,8 +9,7 @@ int& f1() {
 void f2()
 {
 	using namespace std;
-	int val;
 	cout << "Input value: ";
-	cin >> val;
-	f1() = val;
+	cin >> f1();
+
 };
