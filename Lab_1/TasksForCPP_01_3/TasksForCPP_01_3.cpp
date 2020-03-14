@@ -7,12 +7,9 @@
 
 int main()
 {
-
-
     Vector v1(10,0);
     v1.PushBack(1);
     std::cout << "init value: " << v1.GetElem(10) << std::endl;
-    int* elem;
     v1.GetElem(10)=2;
     std::cout << "new value: " << v1.GetElem(10) << std::endl;
 
@@ -25,3 +22,4 @@ int main()
     std::cout << std::endl << "End\n";
 
 }
+//todo: добавить уникальность.
