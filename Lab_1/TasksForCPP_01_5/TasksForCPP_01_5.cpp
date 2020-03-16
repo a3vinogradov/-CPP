@@ -3,16 +3,43 @@
 
 #include <iostream>
 #include "TMyString.h"
+#include <locale.h>
+
 
 int main()
 {
+    setlocale(LC_ALL, "Rus");
+  
+    using namespace std;
     //TMyString str;
-    TMyString str2("Hello");
-    std::cout << str2 << std::endl;
-    TMyString str3("str11111111111111");
-    std::cout << str3 << std::endl;
-    str3.CopyFrom(str2, 2);
-    std::cout << str3 << std::endl;
+    TMyString str2("");
+    cout << "Проверка конструктора пустой строки: " << str2 << endl;
+    cout << "  str2.Length() == " << str2.Length() << endl;
+    
+    TMyString str3("Hello world!");
+    cout << "Проверка конструктора не пустой строки: " << str3 << endl;
+    cout << "  str3.Length() == " << str3.Length() << endl;
+
+    //str2.CopyFrom(str3, 0);
+    //cout << "  str2.CopyFrom(str3, 0) == " << str2 << endl;
+
+    TMyString str4("Hello world!");
+    str4.CopyFrom(str3, 6);
+    cout << "  str4.CopyFrom(str3, 6) == " << str4 << endl;
+
+    TMyString str5("Hello world!");
+    str5.Insert(str3, 6);
+    cout << "  str5.Insert(str3, 6) == " << str5 << endl;
+
+    cout << "Проверка Pos " << endl;
+    cout << "str5.Pos(str3) == " << str5.Pos(str3) << endl;
+
+    char* sub;
+    sub = str5.SubString(2, 8);
+    cout << "str5.SubString(2,8) == " << sub << endl;
+    delete[] sub;
+//    str2.Insert(str3, 7);
+//    cout << "  str2.Insert(str3, 7) == " << str2 << endl;
 
 }
 
