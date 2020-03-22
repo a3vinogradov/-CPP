@@ -11,6 +11,36 @@ void TMyDate::SetTM(tm time)
     year = time.tm_year + 1900;
 }
 
+int TMyDate::MaxDays()
+{
+    switch (month) {
+        case 9:
+        case 4:
+        case 6:
+        case 11: 
+            return 30;
+            break;
+        case 2:
+            return (IsLeap()?29:28);
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return 31;
+            break;
+    }
+    throw std::out_of_range("Error! Out of Range!");
+}
+
+bool TMyDate::IsLeap()
+{
+    return !((year % 4) || ( !(year % 100) && (year % 400)));
+}
+
 TMyDate::TMyDate(): day(0), month(0), year(0)
 {}
 
@@ -68,21 +98,54 @@ void TMyDate::SetTime_t(time_t time)
     return;
 }
 
+int TMyDate::GetDay() const
+{
+    return day;
+}
+
+int TMyDate::GetMonth() const
+{
+    return month;
+}
+
+int TMyDate::GetYear() const
+{
+    return year;
+}
+
 void TMyDate::IncDays(int days)
 {
-    day = day + days;
+    day += days;
+    while (day > MaxDays())
+    {
+        day -= MaxDays();
+        IncMonth(1);
+    }
+    while (day < 1)
+    {
+        IncMonth(-1);
+        day += MaxDays();
+    }
+    return;
 
 }
 
 void TMyDate::IncMonth(int diff)
 {
     month = month + diff;
-    if (month > 12) {
-        
-        int tmp = month / 12;
-        IncYears(tmp);
-        month = month % 12;
+    int a = 0;
+    int b = 0;
+    if (month > 0) {
+        a = (month - 1) / 12;
+        b = (month - 1) % (12) + 1;        
     }
+    else 
+    {
+        a = month / 12 -1;
+        b = month % 12 + 12;
+    }
+    month = b;
+    IncYears(a);
 }
 
 void TMyDate::IncYears(int diff)
@@ -92,7 +155,26 @@ void TMyDate::IncYears(int diff)
 
 int TMyDate::DiffInDays(TMyDate& ref)
 {
-    day = day - ref.day;
-    if (day < 0) 
+    int cmp = 0;
+    int res = 0;
+    TMyDate tmp(GetDay(), GetMonth(), GetYear());
+
+    while (cmp = tmp.Compare(ref))
+    {
+        tmp.IncDays(-cmp);
+        res+=cmp;
+    }
+    return res;
+
+}
+
+int TMyDate::Compare(TMyDate& ref)
+{
+    if (year > ref.year) { return 1; }
+    if (year < ref.year) { return -1; }
+    if (month > ref.month) { return 1; }
+    if (month < ref.month) { return -1; }
+    if (day > ref.day) { return 1; }
+    if (day < ref.day) { return -1; }
     return 0;
 }

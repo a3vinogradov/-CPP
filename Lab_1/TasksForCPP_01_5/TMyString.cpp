@@ -19,7 +19,7 @@ TMyString::TMyString(const char* src)
 
 TMyString::TMyString(const TMyString& ref) 
 {
-	data = new char[ref.Length()+1];
+	data = new char[(size_t)ref.Length()+1];
 	char* src = ref.data;
 	char* dest = data;
 	while (*dest++ = *src++) {}
@@ -82,9 +82,9 @@ void TMyString::Insert(TMyString& subStr, const int pos)
 	char* src2 = subStr.data;
 	int i = 0;
 	for (i = 0; i < pos ; i++) { *dest++ = *src1++; }
-	while (*dest++ = *src2++) {	}
+	while (*dest++ = *src2++); //{}
 	dest--;
-	while (*dest++ = *src1++) { }
+	while (*dest++ = *src1++); //{ }
 	
 	delete[] data;
 	data = tmp;
@@ -119,7 +119,7 @@ char* TMyString::SubString(const int from, const int count)
 	{
 		throw std::out_of_range("Error! index out of range!");
 	}
-	char* temp = new char[count + 1];
+	char* temp = new char[(size_t)count + 1];
 	for (int i = 0; i < count; i++)
 	{
 		temp[i] = data[i + from];

@@ -10,6 +10,8 @@ private:
     int month;
     int year;
 	void SetTM(tm time);
+	int MaxDays();
+	bool IsLeap();
 
 public:
 	TMyDate();
@@ -19,13 +21,18 @@ public:
 	TMyDate(TMyDate&& ref) noexcept;
 	void Print() const;
 
+
 	time_t ToTime_t();
 	void SetTime_t(time_t time);
+	int GetDay() const;
+	int GetMonth() const;
+	int GetYear() const;
 	void IncDays(int diff);
 	void IncMonth(int diff);
 	void IncYears(int diff);
 
 	int DiffInDays(TMyDate& ref);
+	int Compare(TMyDate& ref);
 
 };
 
