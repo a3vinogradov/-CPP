@@ -132,6 +132,15 @@ char* TMyString::SubString(const int from, const int count)
 	return temp;
 }
 
+char TMyString::At(const size_t index) const
+{
+	if ( index >= Length())
+	{
+		throw std::out_of_range("Error! index out of range!");
+	}
+	return data[index];
+}
+
 std::ostream& operator<< (std::ostream& out,
 	const TMyString& ref)
 {

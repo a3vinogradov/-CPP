@@ -27,6 +27,7 @@ public:
 	void Insert(TMyString& subStr, const int pos);
 	int Pos(TMyString& subStr) const;
 	char* SubString(const int from, const int count);
+	char At(const size_t index) const;
 private:
 	char* data;
 };
