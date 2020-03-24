@@ -137,7 +137,6 @@ std::ostream& operator<< (std::ostream& out,
 {
 	ref.Print();
 	return out;
-
 };
 std::istream& operator>> (std::istream& in,
 	TMyString& ref)
