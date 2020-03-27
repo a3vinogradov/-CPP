@@ -1,3 +1,6 @@
+#include "..\TasksForCPP_02_2\Polinom.h"
+#include "..\TasksForCPP_02_2\Polinom.h"
+#include "..\TasksForCPP_02_2\Polinom.h"
 #include "big_integer.h"
 #include <vector>
 #include <string>
@@ -165,6 +168,16 @@ big_integer::operator std::string() const {
     std::stringstream ss;
     ss << *this;
     return ss.str();
+}
+
+const Polinom Polinom::operator-() const
+{
+    return Polinom();
+}
+
+const Polinom Polinom::operator+() const
+{
+    return Polinom();
 }
 
 // преобразует signed char к big_integer
