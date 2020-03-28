@@ -148,12 +148,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\TasksForCPP_01_6\TMyDate.cpp" />
+    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="TasksForCPP_04.cpp" />
     <ClCompile Include="TEmployee.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\TasksForCPP_01_5\TMyString.h" />
     <ClInclude Include="..\TasksForCPP_01_6\TMyDate.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="TEmployee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

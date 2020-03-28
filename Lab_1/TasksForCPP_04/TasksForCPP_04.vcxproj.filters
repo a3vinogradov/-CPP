@@ -24,6 +24,9 @@
     <ClCompile Include="..\TasksForCPP_01_6\TMyDate.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Counter.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TEmployee.h">
@@ -33,6 +36,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="..\TasksForCPP_01_6\TMyDate.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Counter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
