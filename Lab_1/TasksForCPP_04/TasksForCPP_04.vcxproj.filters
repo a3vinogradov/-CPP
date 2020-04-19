@@ -24,9 +24,6 @@
     <ClCompile Include="..\TasksForCPP_01_6\TMyDate.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Counter.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TEmployee.h">

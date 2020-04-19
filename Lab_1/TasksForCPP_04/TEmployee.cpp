@@ -1,8 +1,12 @@
 #include "TEmployee.h"
+#include <iostream>
+#include <sstream>
+
 
 
 enum Positions {};
 
+size_t TEmployee::_tabNumerator = 0;
 
 void TEmployee::SetDefaultSalary()
 {
@@ -22,7 +26,6 @@ void TEmployee::SetDefaultSalary()
 		throw exception("Неизвестная должность!");
 	}
 }
-//size_t TEmployee::_tabNumerator = 0;
 TEmployee::TEmployee(const char* aLastName, const char* aFirstName)
 {
 	_lastName = aLastName;
@@ -30,6 +33,16 @@ TEmployee::TEmployee(const char* aLastName, const char* aFirstName)
 	_tabNumber = ++_tabNumerator;
 	_salary = 0;
 	SetPosition(cnstPosProgrammer);
+}
+
+void TEmployee::SetFirstName(const string Value)
+{
+	if (Value != "") _firstName = Value;
+}
+
+void TEmployee::SetLastName(const string Value)
+{
+	if (Value != "") _lastName = Value;
 }
 
 void TEmployee::SetPosition(const string aPos)
@@ -53,17 +66,34 @@ TMyDate TEmployee::GetDateTermination() const
 	return _dateTermination;
 }
 
-void TEmployee::SetDateEmployment(TMyDate date)
+void TEmployee::SetDateTermination(const TMyDate& Value)
+{
+	_dateTermination = Value;
+}
+
+string TEmployee::ToString() const
+{
+	std::stringstream ss;
+	ss << GetLastName() << " " << GetFirstName() << endl;
+	ss << "Tab №: " << GetTabNumber() << endl;
+	ss << "Должность: " << GetPosition() << endl;
+	ss << "Оклад: " << GetSalary() << endl;
+
+	return ss.str();
+}
+
+void TEmployee::SetDateEmployment(const TMyDate& date)
 {
 	_dateEmployment = date;
 }
 
 std::ostream& operator<<(std::ostream& os, const TEmployee& obj)
 {
-	os << obj.GetLastName() << " " << obj.GetFirstName() << endl;
-	os << "Tab №: " << obj.GetTabNumber() << endl;
-	os << "Должность: " << obj.GetPosition() << endl;
-	os << "Оклад: " << obj.GetSalary() << endl;
-	os << "Стаж работы: " << obj.
+	//os << obj.GetLastName() << " " << obj.GetFirstName() << endl;
+	//os << "Tab №: " << obj.GetTabNumber() << endl;
+	//os << "Должность: " << obj.GetPosition() << endl;
+	//os << "Оклад: " << obj.GetSalary() << endl;
+	//os << "Стаж работы: " << obj.
+	os << obj.ToString();
 	return os;
 }

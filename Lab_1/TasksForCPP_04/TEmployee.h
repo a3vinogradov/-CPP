@@ -16,8 +16,8 @@ class TEmployee
 	string _firstName;
 	string _position;
 	double _salary;
-	TMyDate _dateEmployment = { 0,0,0 };
-	TMyDate _dateTermination = { 0,0,0 };
+	TMyDate _dateEmployment ;
+	TMyDate _dateTermination;
 	static size_t _tabNumerator;
 	size_t _tabNumber;
 
@@ -27,15 +27,19 @@ public:
 
 	size_t GetTabNumber() const { return _tabNumber; }
 	string GetFirstName() const { return _firstName; }
+	void SetFirstName(const string Value);
 	string GetLastName() const { return _lastName; }
+	void SetLastName(const string Value);
 	string GetPosition() const { return _position; }
 	void SetPosition(const string aPos);
 	double GetSalary() const { return _salary; }
 	void SetSalary(const double aVal);
 	TMyDate GetDateEmployment() const;
+	void SetDateEmployment(const TMyDate& date);
 	TMyDate GetDateTermination() const;
-	void SetDateEmployment(TMyDate date);
-	void SetDateTermination(TMyDate& date);
+	void SetDateTermination(const TMyDate& Value);
+
+	string ToString() const;
 
 };
 std::ostream& operator <<(std::ostream& os, const TEmployee& obj);

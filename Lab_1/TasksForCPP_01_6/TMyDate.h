@@ -1,5 +1,4 @@
 #pragma once
-
 #include <time.h>
 #include <iostream>
 
@@ -32,8 +31,10 @@ public:
 	void IncYears(int diff);
 
 	int DiffInDays(TMyDate& ref);
-	int Compare(TMyDate& ref);
+	int Compare(const TMyDate& ref) const;
 
+	TMyDate operator = (const TMyDate& ref);
+	friend bool operator == (const TMyDate& left, const TMyDate& right);
 };
 
 

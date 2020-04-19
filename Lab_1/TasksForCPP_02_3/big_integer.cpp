@@ -167,16 +167,6 @@ big_integer::operator std::string() const {
     return ss.str();
 }
 
- Polinom Polinom::operator-() const
-{
-    return Polinom();
-}
-
- Polinom Polinom::operator+() const
-{
-    return Polinom();
-}
-
 // преобразует signed char к big_integer
 big_integer::big_integer(signed char c) {
     if (c < 0) this->_is_negative = true;
@@ -205,8 +195,10 @@ big_integer::big_integer(unsigned short s) {
 
 // преобразует signed int к big_integer
 big_integer::big_integer(signed int i) {
-    if (i < 0) this->_is_negative = true;
-    else this->_is_negative = false;
+    if (i < 0) 
+        this->_is_negative = true;
+    else 
+        this->_is_negative = false;
     this->_digits.push_back(std::abs(i) % big_integer::BASE);
     i /= big_integer::BASE;
     if (i != 0) this->_digits.push_back(std::abs(i));
@@ -214,6 +206,7 @@ big_integer::big_integer(signed int i) {
 
 // преобразует unsigned int к big_integer
 big_integer::big_integer(unsigned int i) {
+    this->_is_negative = false;
     this->_digits.push_back(i % big_integer::BASE);
     i /= big_integer::BASE;
     if (i != 0) this->_digits.push_back(i);
@@ -221,8 +214,10 @@ big_integer::big_integer(unsigned int i) {
 
 // преобразует signed long к big_integer
 big_integer::big_integer(signed long l) {
-    if (l < 0) this->_is_negative = true;
-    else this->_is_negative = false;
+    if (l < 0) 
+        this->_is_negative = true;
+    else 
+        this->_is_negative = false;
     this->_digits.push_back(std::abs(l) % big_integer::BASE);
     l /= big_integer::BASE;
     if (l != 0) this->_digits.push_back(std::abs(l));
@@ -230,6 +225,7 @@ big_integer::big_integer(signed long l) {
 
 // преобразует unsigned long к big_integer
 big_integer::big_integer(unsigned long l) {
+    this->_is_negative = false;
     this->_digits.push_back(l % big_integer::BASE);
     l /= big_integer::BASE;
     if (l != 0) this->_digits.push_back(l);

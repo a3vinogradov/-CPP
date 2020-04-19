@@ -5,7 +5,7 @@
 //#include "Counter.h"
 
 using namespace std;
-size_t TEmployee::_tabNumerator = 0;
+//size_t TEmployee::_tabNumerator = 0;
 int main()
 {
     setlocale(LC_ALL, "Rus");

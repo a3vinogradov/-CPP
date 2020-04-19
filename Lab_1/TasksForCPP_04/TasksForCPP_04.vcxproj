@@ -148,7 +148,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\TasksForCPP_01_6\TMyDate.cpp" />
-    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="TasksForCPP_04.cpp" />
     <ClCompile Include="TEmployee.cpp" />
   </ItemGroup>
